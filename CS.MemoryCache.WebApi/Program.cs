@@ -1,6 +1,7 @@
 
 using CS.MemoryCache.WebApi.Services;
 using CS.MemoryCache.WebApi.Services.Interfaces;
+using CS.Services.CacheMemoryService.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace CS.MemoryCache.WebApi
@@ -15,6 +16,7 @@ namespace CS.MemoryCache.WebApi
 
             builder.Services.AddControllers();
             builder.Services.AddMemoryCache();
+            builder.Services.AddCSMemoryCacheService();
 
             var configuration = builder.Configuration;
             builder.Services.AddDbContext<EmployeeDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("EmployeeConnection")));
